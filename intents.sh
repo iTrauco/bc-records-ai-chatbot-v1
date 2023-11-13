@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 5
+sleep 10
 cxcli intent create redirect.artists.overview --training-phrases "Which bands are signed?,Which bands,Which artists,Which artists are part of the record label,Who is part of the label,From which bands can I buy merchandise,Band merchandise,Which music do you have?,I would like to know who are signed to the label,Who are supported by the label,From who can I buy shirts,What music can I order,Can I get an overview of all the artists" --agent-name bc-records-agent --project-id bot1-404120 --location-id global
 cxcli intent create redirect.product.overview --training-phrases "Which products do you sell?, What merchandise items do you have?, What are you selling?, What are the items?, Which products? What merchandise?, Please tell me what you have" --agent-name bc-records-agent --project-id bot1-404120 --location-id global
 cxcli intent create confirm.artists.overview --training-phrases "Yeah, let me buy merchandise, Yes, I want to purchase something, Yes, I would like to order merchandise from Alice Googler, Ok, let's buy stuff." --agent-name bc-records-agent --project-id bot1-404120 --location-id global
