@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 
 
-resource "google_dialogflow_cx_agent" "bc-records-agent" {
+resource "google_dialogflow_cx_agent" "bc_records_agennt" {
   display_name          = "bc-records-agent"
   location              = var.region
   default_language_code = "en"
