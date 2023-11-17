@@ -31,3 +31,8 @@ variable "secrets" {
   default = "~/.config/secrets/cx_admin_sa.json"
   type    = string
 }
+
+variable "test_intent"{
+  type = list(string)
+  default = ["I want to cancel my orderi","I want to cancel order ABCD123","Please cancel order ABCD123","Undo my order","Stop my order","Cancel"]
+}
