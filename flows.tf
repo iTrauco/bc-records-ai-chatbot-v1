@@ -10,7 +10,7 @@ resource "null_resource" "default_start_flow" {
     cxcli flow create 'My Order' -a bc-records-agent -e en -l global -p ${var.project_id}
     cxcli flow create 'Customer Care' -a bc-records-agent -e en -l global -p ${var.project_id}
     cxcli flow create 'Order Process' -a bc-records-agent -e en -l global -p ${var.project_id}
-      
+    ./intents.sh
     EOT
     
  }
