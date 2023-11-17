@@ -1,4 +1,4 @@
-resource "google_dialogflow_cx_entity_type" "basic_entity_artists" {
+resource "google_dialogflow_cx_entity_type" "artists" {
   parent       = google_dialogflow_cx_agent.agent.id
   display_name = "Artists"
   kind         = "KIND_MAP"
@@ -18,12 +18,24 @@ resource "google_dialogflow_cx_entity_type" "basic_entity_artists" {
   redact = true
 } 
 
-resource "google_dialogflow_cx_entity_type" "basic_entity_merch" {
+resource "google_dialogflow_cx_entity_type" "artists_aliases" {
+  parent       = google_dialogflow_cx_agent.agent.id
+  display_name = "Artist_Aliases"
+  kind         = "KIND_MAP"
+  entities {
+    value = google_dialogflow_cx_entity_type.artists.display_name
+    synonyms = ["musician","bands", "singers"]
+  }
+  enable_fuzzy_extraction = false
+} 
+
+resource "google_dialogflow_cx_entity_type" "merch" {
   parent       = google_dialogflow_cx_agent.agent.id
   display_name = "Merch"
   kind         = "KIND_MAP"
   entities {
     value = "T-shirt"
+    synonyms = ["T-shirt"]
   }
   entities {
     value = "Longsleeve"
@@ -31,6 +43,7 @@ resource "google_dialogflow_cx_entity_type" "basic_entity_merch" {
   }
   entities {
     value = "Tour Movie"
+    synonyms = ["Tour Movie"]
   }
   entities {
     value = "Digital Album"
@@ -40,67 +53,64 @@ resource "google_dialogflow_cx_entity_type" "basic_entity_merch" {
     value = "CD"
     synonyms = ["Disc","Physical CD"]
   }
-  enable_fuzzy_extraction = true
-  redact = true 
 } 
 
-resource "google_dialogflow_cx_entity_type" "basic_entity_album" {
-  parent       = google_dialogflow_cx_agent.agent.id
-  display_name = "Album"
-  kind         = "KIND_MAP"
-  entities {
-    value = "Live"
-  }
-  entities {
-    value = "Greatest Hits"
-    synonyms = ["Hits"]
-  }
-  enable_fuzzy_extraction = true
-  redact = true
-} 
+# resource "google_dialogflow_cx_entity_type" "basic_entity_album" {
+#   parent       = google_dialogflow_cx_agent.agent.id
+#   display_name = "Album"
+#   kind         = "KIND_MAP"
+#   entities {
+#     value = "Live"
+#   }
+#   entities {
+#     value = "Greatest Hits"
+#     synonyms = ["Hits"]
+#   }
+#   enable_fuzzy_extraction = true
+#   redact = true
+# } 
 
-resource "google_dialogflow_cx_entity_type" "basic_entity_shirtsize" {
-  parent       = google_dialogflow_cx_agent.agent.id
-  display_name = "ShirtSize"
-  kind         = "KIND_MAP"
-  entities {
-    value = "XS"
-    synonyms = ["Extra Small"]
-  }
-  entities {
-    value = "S"
-    synonyms = ["Small"]
-  }
+# resource "google_dialogflow_cx_entity_type" "basic_entity_shirtsize" {
+#   parent       = google_dialogflow_cx_agent.agent.id
+#   display_name = "ShirtSize"
+#   kind         = "KIND_MAP"
+#   entities {
+#     value = "XS"
+#     synonyms = ["Extra Small"]
+#   }
+#   entities {
+#     value = "S"
+#     synonyms = ["Small"]
+#   }
 
-  entities {
-    value = "M"
-    synonyms = ["Medium"]
-  }
-  entities {
-    value = "L"
-    synonyms = ["Large"]
-  }
-  entities {
-    value = "XL"
-    synonyms = ["Extra Large"]
-  }
-  entities {
-    value = "2XL"
-    synonyms = ["Extra Extra Large"]
-  }
-  enable_fuzzy_extraction = true 
-  redact = true
-} 
+#   entities {
+#     value = "M"
+#     synonyms = ["Medium"]
+#   }
+#   entities {
+#     value = "L"
+#     synonyms = ["Large"]
+#   }
+#   entities {
+#     value = "XL"
+#     synonyms = ["Extra Large"]
+#   }
+#   entities {
+#     value = "2XL"
+#     synonyms = ["Extra Extra Large"]
+#   }
+#   enable_fuzzy_extraction = true 
+#   redact = true
+# } 
 
 
 
-resource "google_dialogflow_cx_entity_type" "basic_entity_order_number" {
-  parent       = google_dialogflow_cx_agent.agent.id
-  display_name = "OrderNumber"
-  kind         = "KIND_REGEXP"
-  entities {
-    value = "[A-Z]{4}[0-9]{3}"
-  }
-  enable_fuzzy_extraction = true
-  redact = true 
-} 
+# resource "google_dialogflow_cx_entity_type" "basic_entity_order_number" {
+#   parent       = google_dialogflow_cx_agent.agent.id
+#   display_name = "OrderNumber"
+#   kind         = "KIND_REGEXP"
+#   entities {
+#     value = "[A-Z]{4}[0-9]{3}"
+#   }
+#   enable_fuzzy_extraction = false 
+# } 
