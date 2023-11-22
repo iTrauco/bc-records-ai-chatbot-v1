@@ -169,7 +169,6 @@ resource "google_dialogflow_cx_flow" "catalog_flow" {
   parent       = google_dialogflow_cx_agent.agent.id
   display_name = "Catalog Flow"
   description  = "Catalog Flow"
-
   nlu_settings {
     classification_threshold = 0.3
     model_type               = "MODEL_TYPE_STANDARD"

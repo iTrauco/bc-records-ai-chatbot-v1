@@ -270,3 +270,37 @@ resource "google_dialogflow_cx_page" "redirect_end_page" {
     target_page = "${google_dialogflow_cx_agent.agent.start_flow}/pages/END_SESSION"
   }
 }
+
+
+
+################################################################
+################################################################
+################################################################
+# Pages for Catalog Flow
+
+resource "google_dialogflow_cx_page" "artist_overview" {
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "Artist Overview"
+}
+
+resource "google_dialogflow_cx_page" "product" {
+    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "Product"
+
+}
+
+resource "google_dialogflow_cx_page" "product_overview" {
+    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "Product Overview"
+
+}
+
+resource "google_dialogflow_cx_page" "Shirts" {
+    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "Shirts"
+
+}
+resource "google_dialogflow_cx_page" "Music" {
+    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "Music"
+}
