@@ -11,7 +11,91 @@
 #  }
 #  depends_on = [null_resource.default_start_flow]
 # }
+  
+resource "google_dialogflow_cx_intent" "redirect_artists_overview" {
+  parent       = google_dialogflow_cx_agent.agent.id
+  display_name = "redirect.artists.overview"
+  priority     = 1
 
+  training_phrases {
+     parts {
+         text = "Which bands are signed?"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Which bands"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Which artists"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Which artists are part of the record label"
+     }
+     repeat_count = 1
+  }
+    training_phrases {
+     parts {
+         text = "Who is part of the label"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "From which bands can I buy merchandise"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Band merchandise"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Which music do you have?"
+     }
+     repeat_count = 1
+  }
+    training_phrases {
+     parts {
+         text = "I would like to know who are signed to the label"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Who are supported by the label"
+     }
+     repeat_count = 1
+  }
+      training_phrases {
+     parts {
+         text = "From who can I buy shirts"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "What music can I order"
+     }
+     repeat_count = 1
+  }
+    training_phrases {
+     parts {
+         text = "Can I get an overview of all the artists"
+     }
+     repeat_count = 1
+  }
+ }
 
 resource "google_dialogflow_cx_intent" "redirect_products_overview" {
   parent       = google_dialogflow_cx_agent.agent.id
