@@ -968,3 +968,83 @@ resource "google_dialogflow_cx_intent" "redirect_shirt_size" {
      repeat_count = 1
   }
     }
+
+
+  resource "google_dialogflow_cx_intent" "redirect_product_of_artist" {
+  parent       = google_dialogflow_cx_agent.agent.id
+  display_name = "redirect.product.of.artist"
+  priority     = 1
+
+  training_phrases {
+     parts {
+         text = "Yeah, let's shop"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Give me merch of Alice Googler"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Shirts of The Google Dolls that would be nice"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Yes"
+     }
+     repeat_count = 1
+  }
+    training_phrases {
+     parts {
+         text = "I want The Goo Fighters stuff"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Yes, I want to order merchandise"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Yep, give me items of G's N' Roses"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Go for it"
+     }
+     repeat_count = 1
+  }
+    training_phrases {
+     parts {
+         text = "Anything Alice Googler"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "I am a G's N' Roses fan!"
+     }
+     repeat_count = 1
+  }
+      training_phrases {
+     parts {
+         text = "Google Dolls"
+     }
+     repeat_count = 1
+  }
+  training_phrases {
+     parts {
+         text = "Yes of the Google Dolls"
+     }
+     repeat_count = 1
+  }
+    }
