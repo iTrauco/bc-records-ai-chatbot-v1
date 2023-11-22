@@ -278,11 +278,28 @@ resource "google_dialogflow_cx_page" "redirect_end_page" {
 ################################################################
 # Pages for Catalog Flow
 
+
 resource "google_dialogflow_cx_page" "artist_overview" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Artist Overview"
-}
 
+  form {
+    parameters {
+      display_name = "artist"
+      required = true
+      redact = true
+      entity_type = "projects//locations//agents//entityTypes/@Artists "
+    }
+  }
+   entry_fulfillment {
+    messages {
+      text {
+        text = ["The following bands are signed with G-Records: Alice Googler, G's N' Roses, The Goo Fighters and The Google Dolls."]
+      }
+    }
+    
+}
+}
 resource "google_dialogflow_cx_page" "product" {
     parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Product"
@@ -292,7 +309,13 @@ resource "google_dialogflow_cx_page" "product" {
 resource "google_dialogflow_cx_page" "product_overview" {
     parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Product Overview"
-
+   entry_fulfillment {
+    messages {
+      text {
+        text = ["We sell shirts, music or the tour movie."]
+      }
+    }
+}
 }
 
 resource "google_dialogflow_cx_page" "Shirts" {
