@@ -19,11 +19,10 @@ resource "null_resource" "default_start_flow" {
 				    }
 			    }]
 		    }
-       } 
-      {
+       }, {
         'intent': '${self.triggers.REDIRECT_ARTIST_OVERVIEW_INTENT}',
         'targetPage': '${self.triggers.REDIRECT_ARTIST_OVERVIEW_PAGE}'
-      }
+      }]
     }"
     EOT
   }
@@ -128,6 +127,29 @@ resource "google_dialogflow_cx_flow" "catalog_flow" {
       }
     }
   }
+ event_handlers {
+    event = "sys.no-match-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["Sorry, could you say that again?"]
+        }
+      }
+    }
+  }
+
+  event_handlers {
+    event = "sys.no-input-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["One more time?"]
+        }
+      }
+    }
+  }
 }
 
 
@@ -148,6 +170,29 @@ resource "google_dialogflow_cx_flow" "customer_care_flow" {
       messages {
         text {
           text = ["I didn't get that. Can you say it again?"]
+        }
+      }
+    }
+  }
+ event_handlers {
+    event = "sys.no-match-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["Sorry, could you say that again?"]
+        }
+      }
+    }
+  }
+
+  event_handlers {
+    event = "sys.no-input-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["One more time?"]
         }
       }
     }
@@ -175,6 +220,29 @@ resource "google_dialogflow_cx_flow" "my_order_flow" {
       }
     }
   }
+ event_handlers {
+    event = "sys.no-match-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["Sorry, could you say that again?"]
+        }
+      }
+    }
+  }
+
+  event_handlers {
+    event = "sys.no-input-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["One more time?"]
+        }
+      }
+    }
+  }
 }
 
 resource "google_dialogflow_cx_flow" "order_process_flow" {
@@ -194,6 +262,29 @@ resource "google_dialogflow_cx_flow" "order_process_flow" {
       messages {
         text {
           text = ["I didn't get that. Can you say it again?"]
+        }
+      }
+    }
+  }
+   event_handlers {
+    event = "sys.no-match-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["Sorry, could you say that again?"]
+        }
+      }
+    }
+  }
+
+  event_handlers {
+    event = "sys.no-input-default"
+    trigger_fulfillment {
+      return_partial_responses = false
+      messages {
+        text {
+          text = ["One more time?"]
         }
       }
     }
