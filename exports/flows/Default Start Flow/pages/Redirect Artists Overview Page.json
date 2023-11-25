@@ -1,0 +1,13 @@
+{
+  "name": "b4a0ed5b-9322-483a-8fa6-4db999a55e4e",
+  "displayName": "Redirect Artists Overview Page",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "intent": "redirect.artists.overview",
+    "condition": "true",
+    "targetFlow": "Catalog Flow",
+    "name": "63cbd3ab-e25c-4553-bd77-cc9802cdbbd3"
+  } ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "bfc9b0eb-4351-4eaf-83f2-abbe9085d239",
+  "displayName": "My Order Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "My Order Flow",
+    "name": "4dff499f-d23b-490c-9c17-dfb1085b14bc"
+  } ]
+}

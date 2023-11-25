@@ -1,0 +1,93 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "I want to place an order"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to buy a shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Order a shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Buy your "
+    }, {
+      "text": "pink",
+      "parameterId": "color"
+    }, {
+      "text": " shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Make a purchase"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want a "
+    }, {
+      "text": "small",
+      "parameterId": "size"
+    }, {
+      "text": " shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want a "
+    }, {
+      "text": "large",
+      "parameterId": "size"
+    }, {
+      "text": ", "
+    }, {
+      "text": "red",
+      "parameterId": "color"
+    }, {
+      "text": " shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want a "
+    }, {
+      "text": "blue",
+      "parameterId": "color"
+    }, {
+      "text": " shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need a shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need a "
+    }, {
+      "text": "yellow",
+      "parameterId": "color"
+    }, {
+      "text": " shirt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

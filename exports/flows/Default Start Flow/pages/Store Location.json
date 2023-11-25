@@ -1,0 +1,15 @@
+{
+  "name": "04ace161-5d88-458e-8046-69ee8cfeb114",
+  "displayName": "Store Location",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Our store is located at 1007 Mountain Drive, Gotham City, NJ." ]
+      },
+      "languageCode": "en"
+    } ]
+  }
+}

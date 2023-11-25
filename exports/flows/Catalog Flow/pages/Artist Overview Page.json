@@ -1,0 +1,94 @@
+{
+  "name": "6b09f5c1-bc18-44ad-937d-1ffcd756073a",
+  "displayName": "Artist Overview Page",
+  "form": {
+    "parameters": [ {
+      "displayName": "artist",
+      "required": true,
+      "entityType": "@Artist",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "From which of these artists would you like to order merchandise?" ]
+            },
+            "languageCode": "en"
+          }, {
+            "payload": {
+              "richContent": [ [ {
+                "options": [ {
+                  "text": "The Google Dolls"
+                }, {
+                  "text": "The Goo Fighters"
+                }, {
+                  "text": "Alice Googler"
+                }, {
+                  "text": "G's N' Roses"
+                } ],
+                "type": "chips"
+              } ] ]
+            },
+            "languageCode": "en"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I missed that. Please, specify the artist. You can choose between: Alice Googler, G's N' Roses, The Google Dolls or The Goo Fighters. Which artist do you want to buy merchandise from?\n\n" ]
+              },
+              "languageCode": "en"
+            } ]
+          },
+          "name": "58208ed6-b89f-41bc-b789-238c4f758b1f"
+        }, {
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I could understand the artist's name. You can choose between Alice Googler, G's N' Roses, The Google Dolls or The Goo Fighters. Which artist do you want to buy merchandise from?\n\n" ]
+              },
+              "languageCode": "en"
+            } ]
+          },
+          "name": "9b49feb0-9c25-4708-bf62-d23dbdc6b9e4"
+        } ]
+      },
+      "redact": true
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "The following bands are signed with G-Records: Alice Googler, G's N' Roses, The Goo Fighters and The Google Dolls." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "redirect.product.of.artist",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Product Overview Page",
+    "name": "68da8fb3-b2c9-49ca-b84c-0f7c30f85ac1"
+  }, {
+    "condition": "$session.params.status = FINAL",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.artist, great choice! Rock on!" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You want to rock with $session.params.artist merchandise. Awesome!" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Product Overview Page",
+    "name": "87fa0e20-607a-4bfc-8094-404e8e1d2dff"
+  } ]
+}

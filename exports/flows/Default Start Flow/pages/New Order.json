@@ -1,0 +1,59 @@
+{
+  "name": "4104c282-9892-4172-aa77-11eb6e5c69df",
+  "displayName": "New Order",
+  "form": {
+    "parameters": [ {
+      "displayName": "color",
+      "required": true,
+      "entityType": "@sys.color",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What color would you like?" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "size",
+      "required": true,
+      "entityType": "@size",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What size do you want?" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "You have selected a $session.params.size, $session.params.color shirt." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Order Confirmation",
+    "name": "15f65a7b-1cac-45e8-b485-9194afbb7956"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'd like to collect a bit more information from you." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "638d071d-0119-462e-a35a-aa0150ccefef"
+  } ]
+}

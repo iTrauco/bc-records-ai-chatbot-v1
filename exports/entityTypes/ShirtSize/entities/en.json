@@ -1,0 +1,27 @@
+{
+  "entities": [ {
+    "value": "XS",
+    "synonyms": [ "Extra Small" ],
+    "languageCode": "en"
+  }, {
+    "value": "S",
+    "synonyms": [ "Small" ],
+    "languageCode": "en"
+  }, {
+    "value": "M",
+    "synonyms": [ "Medium" ],
+    "languageCode": "en"
+  }, {
+    "value": "L",
+    "synonyms": [ "Large" ],
+    "languageCode": "en"
+  }, {
+    "value": "XL",
+    "synonyms": [ "Extra Large" ],
+    "languageCode": "en"
+  }, {
+    "value": "2XL",
+    "synonyms": [ "Extra Extra Large" ],
+    "languageCode": "en"
+  } ]
+}

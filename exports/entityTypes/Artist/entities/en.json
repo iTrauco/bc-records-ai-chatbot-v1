@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "The Google Dolls",
+    "synonyms": [ "Google Dolls" ],
+    "languageCode": "en"
+  }, {
+    "value": "The Goo Fighters",
+    "synonyms": [ "Goo Fighters" ],
+    "languageCode": "en"
+  }, {
+    "value": "G's N' Roses",
+    "synonyms": [ "Alice Googler" ],
+    "languageCode": "en"
+  } ]
+}

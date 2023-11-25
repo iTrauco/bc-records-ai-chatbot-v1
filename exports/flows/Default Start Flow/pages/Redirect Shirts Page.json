@@ -1,0 +1,20 @@
+{
+  "name": "36d1a52b-ba00-47cc-a836-6018a56d77a1",
+  "displayName": "Redirect Shirts Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Catalog Flow",
+    "name": "282ab1ad-dc1b-4f30-9d54-47b0299eafc9"
+  } ]
+}

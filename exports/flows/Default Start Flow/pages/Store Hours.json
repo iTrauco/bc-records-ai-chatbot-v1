@@ -1,0 +1,15 @@
+{
+  "name": "bf270a59-8d66-4486-a086-1d74d7e69018",
+  "displayName": "Store Hours",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "We are open from 8 am to 5 pm Monday through Sunday." ]
+      },
+      "languageCode": "en"
+    } ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "dc28ba3f-524b-4e58-bfd7-c3f702f631eb",
+  "displayName": "Redirect Product of Artist Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Catalog Flow",
+    "name": "f4bfd91d-fe34-4d44-a094-333fec37657b"
+  } ]
+}

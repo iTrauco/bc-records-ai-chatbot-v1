@@ -1,0 +1,20 @@
+{
+  "name": "bb59130a-46fd-4882-b4b2-359e6a8c6b3e",
+  "displayName": "Redirect My Order Canceled Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "My Order Flow",
+    "name": "ade57925-562e-4ae2-897a-547e42a506f5"
+  } ]
+}

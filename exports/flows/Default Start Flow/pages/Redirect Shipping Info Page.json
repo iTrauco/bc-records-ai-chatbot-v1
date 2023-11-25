@@ -1,0 +1,20 @@
+{
+  "name": "d870d175-1591-4d6e-a036-28899f522aab",
+  "displayName": "Redirect Shipping Info Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Customer Care Flow",
+    "name": "b9bd4f51-ff20-4bee-b885-30662f2a538f"
+  } ]
+}

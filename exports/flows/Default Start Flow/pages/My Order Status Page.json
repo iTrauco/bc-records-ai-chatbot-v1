@@ -1,0 +1,20 @@
+{
+  "name": "e3dc55d2-0320-4014-ba35-9eca64e9ca26",
+  "displayName": "My Order Status Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "My Order Flow",
+    "name": "98eb9af9-511d-4a89-9ab2-2a49fecfe798"
+  } ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "5004f003-164d-4e84-8e16-ca0e7868b846",
+  "displayName": "Redirect Swapping Info Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Customer Care Flow",
+    "name": "57a191ae-1da1-4163-b787-39bfab119d46"
+  } ]
+}

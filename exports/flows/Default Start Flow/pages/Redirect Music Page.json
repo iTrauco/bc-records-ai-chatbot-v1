@@ -1,0 +1,20 @@
+{
+  "name": "dcf5e366-a6a5-4328-91f3-85e8920c7deb",
+  "displayName": "Redirect Music Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Catalog Flow",
+    "name": "2b3db9c1-e6a5-4f18-b2d4-a3be46f925bd"
+  } ]
+}

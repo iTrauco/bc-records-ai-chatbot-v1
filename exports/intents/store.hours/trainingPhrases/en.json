@@ -1,0 +1,15 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "What time do you close?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are your store hours?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

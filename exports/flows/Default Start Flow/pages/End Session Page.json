@@ -1,0 +1,12 @@
+{
+  "name": "d418510e-a9f3-416a-808f-90c9479f574c",
+  "displayName": "End Session Page",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetPage": "End Session",
+    "name": "3b073188-8a30-4a69-88f7-d3e3f64e2c9a"
+  } ]
+}

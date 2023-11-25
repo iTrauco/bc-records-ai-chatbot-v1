@@ -1,0 +1,7 @@
+{
+  "name": "cef71116-d2c0-4b08-911c-b69a94ce123c",
+  "displayName": "ShirtSize",
+  "kind": "KIND_MAP",
+  "enableFuzzyExtraction": true,
+  "redact": true
+}

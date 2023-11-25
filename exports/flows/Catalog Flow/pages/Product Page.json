@@ -1,0 +1,15 @@
+{
+  "name": "7dc775b4-3fe1-40b0-884a-e3446ea2c3b9",
+  "displayName": "Product Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "We sell shirts, music or the tour movie." ]
+      },
+      "languageCode": "en"
+    } ]
+  }
+}

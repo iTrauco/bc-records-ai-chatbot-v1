@@ -1,0 +1,20 @@
+{
+  "name": "37619404-7603-4721-95aa-85870a82c9bc",
+  "displayName": "Redirect Prodect Overview Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Catalog Flow",
+    "name": "c80ce661-cacb-4833-b340-0a633348ce80"
+  } ]
+}

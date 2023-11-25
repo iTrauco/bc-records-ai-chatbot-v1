@@ -1,0 +1,20 @@
+{
+  "name": "512bdca8-a599-4ce9-aa13-e317a0922835",
+  "displayName": "Redirect Refund Info pAGE",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Customer Care Flow",
+    "name": "008c13a9-32ed-4390-a212-d11824358fa5"
+  } ]
+}

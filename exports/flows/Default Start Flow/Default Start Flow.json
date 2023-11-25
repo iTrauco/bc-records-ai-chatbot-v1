@@ -1,0 +1,211 @@
+{
+  "name": "00000000-0000-0000-0000-000000000000",
+  "displayName": "Default Start Flow",
+  "description": "A start flow created along with the agent",
+  "transitionRoutes": [ {
+    "intent": "Default Intent",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "319b2ad8-ab39-4b4d-93c9-971ade40ff3e"
+  }, {
+    "intent": "redirect.artists.overview",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Catalog Flow",
+    "name": "4e611fea-10c8-4efb-92cd-58d927494d38"
+  }, {
+    "intent": "redirect.product.of.artist",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Catalog Flow",
+    "name": "7d36468e-e366-4ad8-b122-e127635ed139"
+  }, {
+    "intent": "redirect.shirts",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Catalog Flow",
+    "name": "681638c2-1a22-439c-9d89-e090f44be505"
+  }, {
+    "intent": "redirect.music",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Catalog Flow",
+    "name": "91a2df0a-c4a9-4ffd-ae70-ea3db23850a7"
+  }, {
+    "intent": "redirect.product",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Catalog Flow",
+    "name": "8c7605e4-e959-43ba-8e7d-4176d82e5d3d"
+  }, {
+    "intent": "redirect.product.of.artist",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Catalog Flow",
+    "name": "f25b3b83-ab3c-4424-a376-08c5dcaa384a"
+  }, {
+    "intent": "redirect.refund.info",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Customer Care Flow",
+    "name": "0c032dda-729d-40b1-98d4-6580ddd0f5e9"
+  }, {
+    "intent": "redirect.shipping.info",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Customer Care Flow",
+    "name": "e25d9da9-ed56-47d9-bc05-851c1c13af80"
+  }, {
+    "intent": "redirect.swapping.info",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "Customer Care Flow",
+    "name": "9f705982-b1ce-4af8-ad94-ff2f2598504f"
+  }, {
+    "intent": "redirect.my.order",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "My Order Flow",
+    "name": "17b1cfac-4cdb-4869-863b-3b418cdc06b3"
+  }, {
+    "intent": "redirect.my.order.canceled",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "My Order Flow",
+    "name": "cef3186e-62ae-40fa-be7a-23f48f0fc2a5"
+  }, {
+    "intent": "redirect.my.order.status",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "My Order Flow",
+    "name": "5270da00-91c7-4d36-842f-6cca981e3b69"
+  }, {
+    "intent": "redirect.end",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Response to default welcome intent." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "End Session Page",
+    "name": "ccee24b3-5c7d-4a7f-8f74-e113ca8ca3dc"
+  } ],
+  "eventHandlers": [ {
+    "event": "custom-event",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "This is a default flow." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "f3b112c4-6c4d-46b8-8234-fac62be51855"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "We've updated the default flow no-match response!" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "305833b9-2f7e-482c-8d1e-d8023fa38b4b"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "We've updated the default flow no-input response!" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "7efabd3c-b592-4af5-b75f-0df5ee055316"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001
+  }
+}

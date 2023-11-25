@@ -1,0 +1,43 @@
+{
+  "name": "41a786f2-c594-4e10-84c8-fdc1aa4ab8d1",
+  "displayName": "My Order Flow",
+  "description": "My Order Flow",
+  "eventHandlers": [ {
+    "event": "custom-event",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "9eb8e250-a83f-4f06-a6d9-16a7bfa4a605"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Sorry, could you say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "bdd5ecba-918a-42b8-8cf6-2713069456d3"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "One more time?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "df66fe94-8279-4837-8d63-50289b97873b"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001
+  }
+}

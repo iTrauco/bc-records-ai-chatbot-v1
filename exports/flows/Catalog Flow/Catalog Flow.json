@@ -1,0 +1,104 @@
+{
+  "name": "beb9bc38-6dfa-473b-b0c8-bb7968190bbb",
+  "displayName": "Catalog Flow",
+  "description": "Catalog Flow",
+  "transitionRoutes": [ {
+    "intent": "redirect.artists.overview",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "The following bands are signed with G-Records: Alice Googler, G's N' Roses, The Goo Fighters and The Google Dolls." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Artist Overview Page",
+    "name": "a8bfd458-3bba-4f59-8752-f08c86d626ed"
+  }, {
+    "intent": "redirect.product",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Product Page",
+    "name": "7d4425f5-11b6-46c5-b1f1-52e4cf63dfc0"
+  }, {
+    "intent": "redirect.product.overview",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Product Overview Page",
+    "name": "580c0755-cdad-4abe-82ee-18a689892f87"
+  }, {
+    "intent": "redirect.product.of.artist",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Product Overview Page",
+    "name": "95e907c9-2b73-4f2e-adb3-640db5340b3c"
+  }, {
+    "intent": "redirect.shirts",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Shirts Page",
+    "name": "4d44c121-065c-4fbd-a481-46a4ccc88b68"
+  }, {
+    "intent": "redirect.music",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Music Page",
+    "name": "2a9b7bb8-f619-4104-89af-89de6260bcd8"
+  }, {
+    "intent": "redirect.end",
+    "triggerFulfillment": {
+    
+    },
+    "name": "4e02753d-c5f7-4747-b63e-c8387904754b"
+  }, {
+    "intent": "redirect.home",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "End Flow",
+    "name": "3486d6eb-abdb-4558-9bf1-b424c0196ad7"
+  } ],
+  "eventHandlers": [ {
+    "event": "custom-event",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "e4a357cd-ee01-48bd-9f66-f61dfc43e494"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Sorry, could you say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "e1777e2f-5dda-4777-85c2-d0d495b00673"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "One more time?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "f8c38852-274d-4671-8e4d-489d7a86304d"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001
+  }
+}

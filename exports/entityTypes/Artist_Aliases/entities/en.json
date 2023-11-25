@@ -1,0 +1,7 @@
+{
+  "entities": [ {
+    "value": "Artist",
+    "synonyms": [ "musicians", "bands", "singers", "groups" ],
+    "languageCode": "en"
+  } ]
+}

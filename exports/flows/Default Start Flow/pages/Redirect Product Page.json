@@ -1,0 +1,20 @@
+{
+  "name": "13818c1b-6cb5-4ccb-8229-5ba67e07d1a7",
+  "displayName": "Redirect Product Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "test..." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "targetFlow": "Catalog Flow",
+    "name": "34eb789c-6c5e-40db-8034-2f6d9e0e5a39"
+  } ]
+}

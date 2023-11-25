@@ -213,6 +213,9 @@ resource "google_dialogflow_cx_flow" "default_start_flow" {
 }
 
 
+
+
+
 #######################################################
 #######################################################
 #######################################################
@@ -229,119 +232,8 @@ resource "google_dialogflow_cx_flow" "catalog_flow" {
     classification_threshold = 0.3
     model_type               = "MODEL_TYPE_STANDARD"
   }
-  # lifecycle {
-  #   create_before_destroy = false
-  # }
 
-  transition_routes {
-  intent = google_dialogflow_cx_intent.redirect_artists_overview.id
-  trigger_fulfillment {
-      messages {
-        text {
-          text = ["Response to default welcome intent."]
-        }
-      }
-      
-    }
-  # target_page  = google_dialogflow_cx_page.catalog_artist_overview
-  }
-
-#   transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_product.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_product
-#   }
-
-#   transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_product_overview.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_product_overview
-#   }
-
-#   transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_product_of_artist.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_product_overview
-#   }
-
-#   transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_shirts.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_shirts
-#   }
-
-#   transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_music.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_music
-#   }
-
-# transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_end.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_end_session
-#   }
-# transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_home.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_end_flow
-#   }
-
-# transition_routes {
-#   intent = google_dialogflow_cx_intent.redirect_home.id
-#   trigger_fulfillment {
-#       messages {
-#         text {
-#           text = ["Response to default welcome intent."]
-#         }
-#       }
-#     }
-#   target_page  = google_dialogflow_cx_page.catalog_end_flow
-#   }
-
-
+  
   event_handlers {
     event = "custom-event"
     trigger_fulfillment {
@@ -376,8 +268,55 @@ resource "google_dialogflow_cx_flow" "catalog_flow" {
       }
     }
   }
+  depends_on = [ google_dialogflow_cx_entity_type.artist ]
 }
+# resource "null_resource" "catalog_flow" {
+#      provisioner "local-exec" {
+#     command = <<-EOT
+#     curl --location --request PATCH "https://${self.triggers.LOCATION}-dialogflow.googleapis.com/v3/projects/${self.triggers.PROJECT}/locations/${self.triggers.LOCATION}/agents/${self.triggers.AGENT}/flows/${self.triggers.DEFAULT_START_FLOW}?updateMask=transitionRoutes" \
+#     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+#     -H 'Content-Type: application/json' \
+#     --data-raw "{
+#       'transitionRoutes': [{
+#         'intent': 'projects/${self.triggers.PROJECT}/locations/${self.triggers.LOCATION}/agents/${self.triggers.AGENT}/intents/${self.triggers.DEFAULT_WELCOME_INTENT}',
+# 		    'triggerFulfillment': {
+# 			    'messages': [{
+# 				    'text': {
+# 					    'text': [
+# 						    'Hello, this is a shirt ordering virtual agent. How can I help you?'
+# 					    ]
+# 				    }
+# 			    }]
+# 		    }
+#       }, {
+#         'intent': '${self.triggers.STORE_LOCATION_INTENT}',
+#         'targetPage': '${self.triggers.STORE_LOCATION_PAGE}'
+#       }]
+#     }"
+#     EOT
+#   }
 
+#   # Use triggers instead of environment variables so that they can be reused in
+#   # the provisioner to create routes as well as the destroy-time provisioner
+#   triggers = {
+#     PROJECT                = var.project_id
+#     LOCATION               = var.region
+#     AGENT                  = google_dialogflow_cx_agent.agent.name
+#     DEFAULT_START_FLOW     = google_dialogflow_cx_flow.catalog_flow.id
+#     DEFAULT_WELCOME_INTENT = google_dialogflow_cx_intent.redirect_artists_overview.id
+
+#     STORE_LOCATION_INTENT = google_dialogflow_cx_intent.store_location.id
+#     STORE_HOURS_INTENT    = google_dialogflow_cx_intent.store_hours.id
+#     NEW_ORDER_INTENT      = google_dialogflow_cx_intent.order_new.id
+
+#     STORE_LOCATION_PAGE = google_dialogflow_cx_page.store_location.id
+#     STORE_HOURS_PAGE    = google_dialogflow_cx_page.store_hours.id
+#     NEW_ORDER_PAGE      = google_dialogflow_cx_page.new_order.id
+#   }
+
+
+
+# }
 
 resource "google_dialogflow_cx_flow" "customer_care_flow" {
   parent       = google_dialogflow_cx_agent.agent.id

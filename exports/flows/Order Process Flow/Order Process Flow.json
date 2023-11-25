@@ -1,0 +1,43 @@
+{
+  "name": "3e1a4da9-ef71-48ea-9775-ef513c67e5ae",
+  "displayName": "Order Process Flow",
+  "description": "Order Process Flow",
+  "eventHandlers": [ {
+    "event": "custom-event",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "167c4e89-e6e2-4b03-9752-fb233c62ec99"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Sorry, could you say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "27b83a8d-f13a-4281-b9c2-182a6c5181d9"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "One more time?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "90b11ef4-89c8-4566-81b8-e840a2111f30"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001
+  }
+}
