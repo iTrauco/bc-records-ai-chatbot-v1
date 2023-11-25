@@ -1,21 +1,27 @@
+
+
+
 resource "google_dialogflow_cx_page" "redirect_artists_overview_page" {
+
   parent       = google_dialogflow_cx_agent.agent.start_flow
   display_name = "Redirect Artists Overview Page"
 
-  entry_fulfillment {
-    return_partial_responses = false
+  # entry_fulfillment {
+  #   return_partial_responses = false
 
-    messages {
-      text {
-        text = [
-          "test...",
-        ]
-      }
-    }
-  }
+  #   messages {
+  #     text {
+  #       text = [
+  #         "test...",
+  #       ]
+  #     }
+  #   }
+  # }
   transition_routes {
     condition = "true"
+    intent = google_dialogflow_cx_intent.redirect_artists_overview.id
     target_flow = google_dialogflow_cx_flow.catalog_flow.id
+
   }
 }
 resource "google_dialogflow_cx_page" "redirect_products_overview_page" {
@@ -34,7 +40,7 @@ resource "google_dialogflow_cx_page" "redirect_products_overview_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.catalog_flow.id
   }
 }
@@ -55,7 +61,7 @@ resource "google_dialogflow_cx_page" "redirect_shirts_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.catalog_flow.id
   }
 }
@@ -76,7 +82,7 @@ resource "google_dialogflow_cx_page" "redirect_music_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.catalog_flow.id
   }
 }
@@ -97,7 +103,7 @@ resource "google_dialogflow_cx_page" "redirect_product_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.catalog_flow.id
   }
 }
@@ -118,7 +124,7 @@ resource "google_dialogflow_cx_page" "redirect_product_of_artist_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.catalog_flow.id
   }
 }
@@ -139,7 +145,7 @@ resource "google_dialogflow_cx_page" "redirect_refund_info_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.customer_care_flow.id
   }
 }
@@ -160,7 +166,7 @@ resource "google_dialogflow_cx_page" "redirect_shipping_info_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.customer_care_flow.id
   }
 }
@@ -181,7 +187,7 @@ resource "google_dialogflow_cx_page" "redirect_swapping_info_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_flow = google_dialogflow_cx_flow.customer_care_flow.id
   }
 }
@@ -202,8 +208,8 @@ resource "google_dialogflow_cx_page" "redirect_my_order_page" {
     }
   }
   transition_routes {
-    condition = "true"
-    target_flow = google_dialogflow_cx_flow.my_order_flow.id  
+    condition   = "true"
+    target_flow = google_dialogflow_cx_flow.my_order_flow.id
   }
 }
 
@@ -223,8 +229,8 @@ resource "google_dialogflow_cx_page" "redirect_my_order_canceled_page" {
     }
   }
   transition_routes {
-    condition = "true"
-    target_flow = google_dialogflow_cx_flow.my_order_flow.id  
+    condition   = "true"
+    target_flow = google_dialogflow_cx_flow.my_order_flow.id
   }
 }
 
@@ -244,8 +250,8 @@ resource "google_dialogflow_cx_page" "redirect_my_order_status_page" {
     }
   }
   transition_routes {
-    condition = "true"
-    target_flow = google_dialogflow_cx_flow.my_order_flow.id  
+    condition   = "true"
+    target_flow = google_dialogflow_cx_flow.my_order_flow.id
   }
 }
 
@@ -266,7 +272,7 @@ resource "google_dialogflow_cx_page" "redirect_end_page" {
     }
   }
   transition_routes {
-    condition = "true"
+    condition   = "true"
     target_page = "${google_dialogflow_cx_agent.agent.start_flow}/pages/END_SESSION"
   }
 }
@@ -283,33 +289,41 @@ resource "google_dialogflow_cx_page" "artist_overview" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Artist Overview"
 
-  form {
-    parameters {
-      display_name = "artist"
-      required = true
-      redact = true
-      entity_type = "projects//locations//agents//entityTypes/@Artists "
-    }
-  }
-   entry_fulfillment {
+  # form {
+  #   parameters {
+  #     display_name = "artist"
+  #     required     = true
+  #     redact       = true
+  #     entity_type  = "projects//locations//agents//entityTypes/Artist"
+  #   }
+  # }
+  entry_fulfillment {
     messages {
       text {
         text = ["The following bands are signed with G-Records: Alice Googler, G's N' Roses, The Goo Fighters and The Google Dolls."]
       }
     }
-    
-}
+
+  }
 }
 resource "google_dialogflow_cx_page" "product" {
-    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Product"
 
-}
+  entry_fulfillment {
+    messages {
+      text {
+        text = ["We sell shirts, music or the tour movie."]
+      }
+    }
+
+  }
+  }
 
 resource "google_dialogflow_cx_page" "product_overview" {
-    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Product Overview"
-   entry_fulfillment {
+entry_fulfillment {
     messages {
       text {
         text = ["We sell shirts, music or the tour movie."]
@@ -319,11 +333,11 @@ resource "google_dialogflow_cx_page" "product_overview" {
 }
 
 resource "google_dialogflow_cx_page" "Shirts" {
-    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Shirts"
 
 }
 resource "google_dialogflow_cx_page" "Music" {
-    parent       = google_dialogflow_cx_flow.catalog_flow.id
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Music"
 }

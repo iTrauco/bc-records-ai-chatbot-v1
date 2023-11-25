@@ -1,17 +1,102 @@
-# resource "null_resource" "intent_batch_creation_script" {
-#   # Use a REST API call (instead of Terraform modules) to modify messages and
 
-#   # routes in the default start flow and since Dialogflow creates this default
-#   # start flow automatically
-#  provisioner "local-exec" {
-#   command = <<-EOT
-#     ./intents.sh
-#     EOT
-    
-#  }
-#  depends_on = [null_resource.default_start_flow]
-# }
-  
+
+  # training_phrases {
+  #   parts {
+  #     text = ""
+  #   }
+  #   repeat_count = 1
+  # }
+resource "google_dialogflow_cx_intent" "default_welcome_intent" {
+  parent                    = google_dialogflow_cx_agent.agent.id
+  is_default_welcome_intent = true
+  display_name              = "Default Intent"
+  priority                  = 1
+  training_phrases {
+    parts {
+      text = "Hello"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "heya"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hello hi"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "howdy"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hey there"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hi there"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "greetings"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hey"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "lovely day isn't it"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "I greet you"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hello again"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hi"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "hello there"
+    }
+    repeat_count = 1
+  }
+  training_phrases {
+    parts {
+      text = "a good day"
+    }
+    repeat_count = 1
+  }
+}
+
 resource "google_dialogflow_cx_intent" "redirect_artists_overview" {
   parent       = google_dialogflow_cx_agent.agent.id
   display_name = "redirect.artists.overview"
