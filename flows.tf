@@ -20,6 +20,164 @@ resource "google_dialogflow_cx_flow" "default_start_flow" {
     }
   }
 
+  transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_artists_overview.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+    target_flow = google_dialogflow_cx_flow.catalog_flow.id
+
+  }
+
+    transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_product_of_artist.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.catalog_flow.id
+  }
+
+    transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_shirts.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.catalog_flow.id
+  }
+  
+   transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_music.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.catalog_flow.id
+  }
+  
+   transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_product.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.catalog_flow.id
+  }
+  
+   transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_product_of_artist.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.catalog_flow.id
+  }
+  
+   transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_refund_info.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.customer_care_flow.id
+  }
+  
+  transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_shipping_info.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.customer_care_flow.id
+  }
+  
+   transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_swapping_info.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.customer_care_flow.id
+  }
+  
+    transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_my_order.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.my_order_flow.id
+  }
+  
+    transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_my_order_canceled.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.my_order_flow.id
+  }
+  
+     transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_my_order_status.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_flow = google_dialogflow_cx_flow.my_order_flow.id
+  }
+  
+    transition_routes {
+    intent = google_dialogflow_cx_intent.redirect_end.id
+    trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+    }
+  target_page = google_dialogflow_cx_page.redirect_end_page.id
+  }
+  
+
   event_handlers {
     event = "custom-event"
     trigger_fulfillment {
@@ -55,17 +213,133 @@ resource "google_dialogflow_cx_flow" "default_start_flow" {
 }
 
 
-
-
-
+#######################################################
+#######################################################
+#######################################################
+# CATALOG FLOW
+#######################################################
+#######################################################
+#######################################################
 resource "google_dialogflow_cx_flow" "catalog_flow" {
   parent       = google_dialogflow_cx_agent.agent.id
   display_name = "Catalog Flow"
   description  = "Catalog Flow"
+  is_default_start_flow = false
   nlu_settings {
     classification_threshold = 0.3
     model_type               = "MODEL_TYPE_STANDARD"
   }
+  # lifecycle {
+  #   create_before_destroy = false
+  # }
+
+  transition_routes {
+  intent = google_dialogflow_cx_intent.redirect_artists_overview.id
+  trigger_fulfillment {
+      messages {
+        text {
+          text = ["Response to default welcome intent."]
+        }
+      }
+      
+    }
+  # target_page  = google_dialogflow_cx_page.catalog_artist_overview
+  }
+
+#   transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_product.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_product
+#   }
+
+#   transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_product_overview.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_product_overview
+#   }
+
+#   transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_product_of_artist.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_product_overview
+#   }
+
+#   transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_shirts.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_shirts
+#   }
+
+#   transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_music.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_music
+#   }
+
+# transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_end.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_end_session
+#   }
+# transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_home.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_end_flow
+#   }
+
+# transition_routes {
+#   intent = google_dialogflow_cx_intent.redirect_home.id
+#   trigger_fulfillment {
+#       messages {
+#         text {
+#           text = ["Response to default welcome intent."]
+#         }
+#       }
+#     }
+#   target_page  = google_dialogflow_cx_page.catalog_end_flow
+#   }
 
 
   event_handlers {

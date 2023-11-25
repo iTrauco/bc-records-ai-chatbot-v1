@@ -131,7 +131,7 @@ resource "google_dialogflow_cx_page" "redirect_product_of_artist_page" {
 
 resource "google_dialogflow_cx_page" "redirect_refund_info_page" {
   parent       = google_dialogflow_cx_agent.agent.start_flow
-  display_name = "Redirect Refund InfO pAGE"
+  display_name = "Redirect Refund Info pAGE"
 
   entry_fulfillment {
     return_partial_responses = false
@@ -260,17 +260,6 @@ resource "google_dialogflow_cx_page" "redirect_end_page" {
   parent       = google_dialogflow_cx_agent.agent.start_flow
   display_name = "End Session Page"
 
-  entry_fulfillment {
-    return_partial_responses = false
-
-    messages {
-      text {
-        text = [
-          "test...",
-        ]
-      }
-    }
-  }
   transition_routes {
     condition   = "true"
     target_page = "${google_dialogflow_cx_agent.agent.start_flow}/pages/END_SESSION"
@@ -285,18 +274,10 @@ resource "google_dialogflow_cx_page" "redirect_end_page" {
 # Pages for Catalog Flow
 
 
-resource "google_dialogflow_cx_page" "artist_overview" {
+resource "google_dialogflow_cx_page" "catalog_artist_overview" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
-  display_name = "Artist Overview"
+  display_name = "Artist Overview Page"
 
-  # form {
-  #   parameters {
-  #     display_name = "artist"
-  #     required     = true
-  #     redact       = true
-  #     entity_type  = "projects//locations//agents//entityTypes/Artist"
-  #   }
-  # }
   entry_fulfillment {
     messages {
       text {
@@ -305,10 +286,15 @@ resource "google_dialogflow_cx_page" "artist_overview" {
     }
 
   }
+  depends_on = [ google_dialogflow_cx_flow.catalog_flow ]
+  #   transition_routes {
+  #   intent = google_dialogflow_cx_intent.redirect_product_of_artist.id
+  #   target_page = google_dialogflow_cx_page.catalog_product_overview
+  # }
 }
-resource "google_dialogflow_cx_page" "product" {
+resource "google_dialogflow_cx_page" "catalog_product" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
-  display_name = "Product"
+  display_name = "Product Page"
 
   entry_fulfillment {
     messages {
@@ -320,9 +306,9 @@ resource "google_dialogflow_cx_page" "product" {
   }
   }
 
-resource "google_dialogflow_cx_page" "product_overview" {
+resource "google_dialogflow_cx_page" "catalog_product_overview" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
-  display_name = "Product Overview"
+  display_name = "Product Overview Page"
 entry_fulfillment {
     messages {
       text {
@@ -332,12 +318,22 @@ entry_fulfillment {
 }
 }
 
-resource "google_dialogflow_cx_page" "Shirts" {
+resource "google_dialogflow_cx_page" "catalog_shirts" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
-  display_name = "Shirts"
+  display_name = "Shirts Page"
 
 }
-resource "google_dialogflow_cx_page" "Music" {
+resource "google_dialogflow_cx_page" "catalog_music" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
-  display_name = "Music"
+  display_name = "Music Page"
+}
+
+resource "google_dialogflow_cx_page" "catalog_end_session" {
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "End Session"
+}
+
+resource "google_dialogflow_cx_page" "catalog_end_flow" {
+  parent       = google_dialogflow_cx_flow.catalog_flow.id
+  display_name = "Test - End Flow"
 }

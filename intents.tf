@@ -907,6 +907,54 @@ resource "google_dialogflow_cx_intent" "redirect_shirt_size" {
      repeat_count = 1
   }
   }
+resource "google_dialogflow_cx_intent" "redirect_product_overview" {
+    parent       = google_dialogflow_cx_agent.agent.id
+  display_name = "redirect.product.overview"
+  priority     = 1
+
+   training_phrases {
+     parts {
+         text = "Which products do you sell?"
+     }
+     repeat_count = 1
+   }
+   training_phrases {
+     parts {
+         text = "What merchandise items do you have?"
+     }
+     repeat_count = 1
+  }
+   training_phrases {
+     parts {
+         text = "What are you selling?"
+     }
+     repeat_count = 1
+  }
+   training_phrases {
+     parts {
+         text = "What are the items?"
+     }
+     repeat_count = 1
+  }
+   training_phrases {
+     parts {
+         text = "Which products?"
+     }
+     repeat_count = 1
+  }
+   training_phrases {
+     parts {
+         text = "What merchandise?"
+     }
+     repeat_count = 1
+  }
+   training_phrases {
+     parts {
+         text = "Please tell me what you have"
+     }
+     repeat_count = 1
+  }
+}
 
   resource "google_dialogflow_cx_intent" "redirect_home" {
   parent       = google_dialogflow_cx_agent.agent.id
