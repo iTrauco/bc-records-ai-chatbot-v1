@@ -31,3 +31,4 @@ variable "secrets" {
   default = "~/.config/secrets/cx_admin_sa.json"
   type    = string
 }
+
