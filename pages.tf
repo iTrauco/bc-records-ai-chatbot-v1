@@ -343,12 +343,33 @@ form {
             }
         }
     }
-}
-}
-}
+    
+
 }
 
+}
 
+}
+
+transition_routes {
+ condition = "$page.params.status = 'FINAL'"    
+ trigger_fulfillment {
+      messages {
+        # channel = "some-channel"
+        text {
+          text = ["$session.params.artist, great choice! Rock on!"]
+        }
+      }
+      messages {
+        # channel = "some-channel"
+        text {
+          text = ["You want to rock with $session.params.artist merchandise. Awesome!"]
+        }
+      }
+}
+      target_page = google_dialogflow_cx_page.catalog_product_overview.id
+}
+}
 resource "google_dialogflow_cx_page" "catalog_product" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Product Page"
@@ -366,15 +387,97 @@ resource "google_dialogflow_cx_page" "catalog_product" {
 resource "google_dialogflow_cx_page" "catalog_product_overview" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Product Overview Page"
-entry_fulfillment {
-    messages {
-      text {
-        text = ["We sell shirts, music or the tour movie."]
-      }
-    }
-}
-}
 
+form {
+  parameters {
+    display_name = "artist"
+    entity_type = google_dialogflow_cx_entity_type.artist.id
+    is_list = false
+    redact = true
+    required = true
+  
+   fill_behavior {
+        initial_prompt_fulfillment {
+          return_partial_responses = false
+
+          messages {
+            text {
+              text = [
+                "From which of these artists would you like to order merchandise?",
+              ]
+            }
+         
+
+          }
+              messages {
+        payload = <<EOF
+          {"options": [
+          {
+            "text": "The Google Dolls"
+          },
+          {
+            "text": "The Goo Fighters"
+          },
+          {
+            "text": "Alice Googler"
+          },
+          {
+            "text": "G's N' Roses"
+          }
+        ],
+        "type": "chips"}
+        EOF
+      }
+      }
+        reprompt_event_handlers{
+        event = "sys.no-match-default"
+        trigger_fulfillment {
+          return_partial_responses = true
+          messages{ 
+            text { text = ["To buy merchandise you can choose between the following artists: Alice Googler, G's N' Roses, The Google Dolls or The Goo Fighters. Which artist do you want to buy merchandise from?"]}
+        }
+        }
+      }
+      
+      }
+  }
+  }
+        event_handlers {
+          event = "sys.no-input-default"
+          trigger_fulfillment {
+            messages {
+              text {
+                text = ["No-input default: To buy merchandise you can choose between the following artists: Alice Googler, G's N' Roses, The Google Dolls or The Goo Fighters. Which artist were you trying to mention?"
+             ] 
+             }
+            }
+            messages {
+            payload = <<EOF
+          {"options": [
+          {
+            "text": "The Google Dolls"
+          },
+          {
+            "text": "The Goo Fighters"
+          },
+          {
+            "text": "Alice Googler"
+          },
+          {
+            "text": "G's N' Roses"
+          }
+        ],
+        "type": "chips"}
+        EOF
+            }
+          }
+
+
+        }
+
+        
+
+}
 resource "google_dialogflow_cx_page" "catalog_shirts" {
   parent       = google_dialogflow_cx_flow.catalog_flow.id
   display_name = "Shirts Page"

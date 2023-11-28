@@ -270,53 +270,7 @@ resource "google_dialogflow_cx_flow" "catalog_flow" {
   }
   
 }
-# resource "null_resource" "catalog_flow" {
-#      provisioner "local-exec" {
-#     command = <<-EOT
-#     curl --location --request PATCH "https://${self.triggers.LOCATION}-dialogflow.googleapis.com/v3/projects/${self.triggers.PROJECT}/locations/${self.triggers.LOCATION}/agents/${self.triggers.AGENT}/flows/${self.triggers.DEFAULT_START_FLOW}?updateMask=transitionRoutes" \
-#     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-#     -H 'Content-Type: application/json' \
-#     --data-raw "{
-#       'transitionRoutes': [{
-#         'intent': 'projects/${self.triggers.PROJECT}/locations/${self.triggers.LOCATION}/agents/${self.triggers.AGENT}/intents/${self.triggers.DEFAULT_WELCOME_INTENT}',
-# 		    'triggerFulfillment': {
-# 			    'messages': [{
-# 				    'text': {
-# 					    'text': [
-# 						    'Hello, this is a shirt ordering virtual agent. How can I help you?'
-# 					    ]
-# 				    }
-# 			    }]
-# 		    }
-#       }, {
-#         'intent': '${self.triggers.STORE_LOCATION_INTENT}',
-#         'targetPage': '${self.triggers.STORE_LOCATION_PAGE}'
-#       }]
-#     }"
-#     EOT
-#   }
 
-#   # Use triggers instead of environment variables so that they can be reused in
-#   # the provisioner to create routes as well as the destroy-time provisioner
-#   triggers = {
-#     PROJECT                = var.project_id
-#     LOCATION               = var.region
-#     AGENT                  = google_dialogflow_cx_agent.agent.name
-#     DEFAULT_START_FLOW     = google_dialogflow_cx_flow.catalog_flow.id
-#     DEFAULT_WELCOME_INTENT = google_dialogflow_cx_intent.redirect_artists_overview.id
-
-#     STORE_LOCATION_INTENT = google_dialogflow_cx_intent.store_location.id
-#     STORE_HOURS_INTENT    = google_dialogflow_cx_intent.store_hours.id
-#     NEW_ORDER_INTENT      = google_dialogflow_cx_intent.order_new.id
-
-#     STORE_LOCATION_PAGE = google_dialogflow_cx_page.store_location.id
-#     STORE_HOURS_PAGE    = google_dialogflow_cx_page.store_hours.id
-#     NEW_ORDER_PAGE      = google_dialogflow_cx_page.new_order.id
-#   }
-
-
-
-# }
 
 resource "google_dialogflow_cx_flow" "customer_care_flow" {
   parent       = google_dialogflow_cx_agent.agent.id
