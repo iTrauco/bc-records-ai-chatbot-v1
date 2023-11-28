@@ -268,7 +268,7 @@ resource "google_dialogflow_cx_flow" "catalog_flow" {
       }
     }
   }
-  depends_on = [ google_dialogflow_cx_entity_type.artist ]
+  
 }
 # resource "null_resource" "catalog_flow" {
 #      provisioner "local-exec" {
